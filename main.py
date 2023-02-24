@@ -1,9 +1,20 @@
 import random
-# Qual livro ler?
-livros = ['Os Goonies - James Kahn', 'Senhor dos Aneis - J.R.R. Tolkien', 'Coraline - Neil Gaiman', '1984 - George Orwell', 
-'O despertar do príncipe - Colleen Houck', 'Crimes e Castigo - Fiódor Dostoiévski',
-'Orgulho e Preconceito - Jane Austen', 'Looking for Alasca - John Green','Álbum Duplo - Paulo Henrique Ferreira', 
-'Todo Amor - Vinicius de Moraes', 'Para você que teve um dia ruim - Victor Fernandes']
 
-novoLivro = random.choice(livros)
-print(novoLivro)
+# Qual livro ler?
+
+def escolher_livro():
+    arquivo = open('livros.txt' , encoding= "utf8")
+    livros = []
+    for linha in arquivo:
+        linha.strip()
+        livros.append(linha)
+    arquivo.close()
+    novoLivro = random.choice(livros)
+    print(f'Seu novo livro é: {novoLivro}')
+
+if(__name__ == '__main__'):
+   escolher_livro()
+
+
+
+
